@@ -2,8 +2,8 @@
     "theme_color": "#1280c9",
     "background_color": "#f69435",
     "display": "standalone",
-    "scope": "/",
-    "start_url": "/",
+    "scope": "/my-mon-app",
+    "start_url": "/my-mon-app",
     "name": "MyMonApp",
     "short_name": "MMA",
     "icons": [
