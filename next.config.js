@@ -1,14 +1,27 @@
-/** @type {import('next').NextConfig} */
-
+const withPWA = require("next-pwa");
 const isProd = process.env.NODE_ENV === "production";
 
+/** @type {import('next').NextConfig} */
 const nextConfig = {
   output: "export",
-  basePath: "/my-mon-app",
+  //basePath: "/my-mon-app",
   images: {
-    domains: ["images.dog.ceo"],
     unoptimized: true,
+    domains: ["images.dog.ceo"],
   },
+  assetPrefix: isProd ? "/my-mon-app/" : "",
+  reactStrictMode: true,
 };
 
-module.exports = nextConfig;
+const pwaConfig = withPWA({
+  pwa: {
+    dest: "public",
+    register: true,
+    skipWaiting: true,
+  },
+});
+
+module.exports = {
+  ...nextConfig,
+  ...pwaConfig,
+};
